@@ -635,7 +635,7 @@ type recommendContext struct {
 
 func (s *RestServer) createRecommendContext(userId, category string, n int) (*recommendContext, error) {
 	// pull ignored items
-	ignoreItems, err := s.CacheClient.GetSortedByScore(cache.Key(cache.IgnoreItems, userId), math.Inf(-1), float64(float32(time.Now().Unix())))
+	ignoreItems, err := s.CacheClient.GetSortedByScore(cache.Key(cache.IgnoreItems, userId), math.Inf(-1), float64(time.Now().Unix()))
 	if err != nil {
 		return nil, errors.Trace(err)
 	}

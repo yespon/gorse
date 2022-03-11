@@ -189,6 +189,7 @@ type Database interface {
 	GetSortedScore(key, member string) (float64, error)
 	GetSorted(key string, begin, end int) ([]Scored, error)
 	GetSortedByScore(key string, begin, end float64) ([]Scored, error)
+	RemSortedByScore(key string, begin, end float64) error
 	AddSorted(key string, scores []Scored) error
 	SetSorted(key string, scores []Scored) error
 	IncrSorted(key, member string) error
